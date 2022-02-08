@@ -1,0 +1,383 @@
+0: jdbc:hive2://sandbox-hdp.hortonworks.com:2> SELECT * FROM users ORDER BY name ASC;
+INFO  : Compiling command(queryId=hive_20220105220946_9724c1da-d2d4-45c6-904a-0dfb2c3ab616): SELECT * FROM users ORDER BY name ASC
+INFO  : Semantic Analysis Completed (retrial = false)
+INFO  : Returning Hive schema: Schema(fieldSchemas:[FieldSchema(name:users.id, type:int, comment:null), FieldSchema(name:users.name, type:string, comment:null), FieldSchema(name:users.salary, type:int, comment:null), FieldSchema(name:users.unit, type:string, comment:null)], properties:null)
+INFO  : Completed compiling command(queryId=hive_20220105220946_9724c1da-d2d4-45c6-904a-0dfb2c3ab616); Time taken: 1.096 seconds
+INFO  : Executing command(queryId=hive_20220105220946_9724c1da-d2d4-45c6-904a-0dfb2c3ab616): SELECT * FROM users ORDER BY name ASC
+INFO  : Query ID = hive_20220105220946_9724c1da-d2d4-45c6-904a-0dfb2c3ab616
+INFO  : Total jobs = 1
+INFO  : Launching Job 1 out of 1
+INFO  : Starting task [Stage-1:MAPRED] in serial mode
+INFO  : Subscribed to counters: [] for queryId: hive_20220105220946_9724c1da-d2d4-45c6-904a-0dfb2c3ab616
+INFO  : Tez session hasn't been created yet. Opening session
+INFO  : Dag name: SELECT * FROM users ORDER BY name ASC (Stage-1)
+INFO  : Status: Running (Executing on YARN cluster with App id application_1641404740141_0008)
+
+INFO  : Status: DAG finished successfully in 10.52 seconds
+INFO  :
+INFO  : Query Execution Summary
+INFO  : ----------------------------------------------------------------------------------------------
+INFO  : OPERATION                            DURATION
+INFO  : ----------------------------------------------------------------------------------------------
+INFO  : Compile Query                           1.10s
+INFO  : Prepare Plan                           16.06s
+INFO  : Get Query Coordinator (AM)              0.00s
+INFO  : Submit Plan                             0.85s
+INFO  : Start DAG                               1.71s
+INFO  : Run DAG                                10.52s
+INFO  : ----------------------------------------------------------------------------------------------
+INFO  :
+INFO  : Task Execution Summary
+INFO  : ----------------------------------------------------------------------------------------------
+INFO  :   VERTICES      DURATION(ms)   CPU_TIME(ms)    GC_TIME(ms)   INPUT_RECORDS   OUTPUT_RECORDS
+INFO  : ----------------------------------------------------------------------------------------------
+INFO  :      Map 1           5240.00          8,130            378               7                7
+INFO  :  Reducer 2           1339.00          2,520             23               7                0
+INFO  : ----------------------------------------------------------------------------------------------
+INFO  :
+INFO  : org.apache.tez.common.counters.DAGCounter:
+INFO  :    NUM_SUCCEEDED_TASKS: 2
+INFO  :    TOTAL_LAUNCHED_TASKS: 2
+INFO  :    AM_CPU_MILLISECONDS: 6700
+INFO  :    AM_GC_TIME_MILLIS: 63
+INFO  : File System Counters:
+INFO  :    FILE_BYTES_READ: 245
+INFO  :    FILE_BYTES_WRITTEN: 181
+INFO  :    HDFS_BYTES_READ: 117
+INFO  :    HDFS_BYTES_WRITTEN: 288
+INFO  :    HDFS_READ_OPS: 4
+INFO  :    HDFS_WRITE_OPS: 2
+INFO  :    HDFS_OP_CREATE: 1
+INFO  :    HDFS_OP_GET_FILE_STATUS: 3
+INFO  :    HDFS_OP_OPEN: 1
+INFO  :    HDFS_OP_RENAME: 1
+INFO  : org.apache.tez.common.counters.TaskCounter:
+INFO  :    REDUCE_INPUT_GROUPS: 7
+INFO  :    REDUCE_INPUT_RECORDS: 7
+INFO  :    COMBINE_INPUT_RECORDS: 0
+INFO  :    SPILLED_RECORDS: 14
+INFO  :    NUM_SHUFFLED_INPUTS: 1
+INFO  :    NUM_SKIPPED_INPUTS: 0
+INFO  :    NUM_FAILED_SHUFFLE_INPUTS: 0
+INFO  :    MERGED_MAP_OUTPUTS: 1
+INFO  :    GC_TIME_MILLIS: 401
+INFO  :    TASK_DURATION_MILLIS: 6182
+INFO  :    CPU_MILLISECONDS: 10650
+INFO  :    PHYSICAL_MEMORY_BYTES: 1719664640
+INFO  :    VIRTUAL_MEMORY_BYTES: 5298446336
+INFO  :    COMMITTED_HEAP_BYTES: 1719664640
+INFO  :    INPUT_RECORDS_PROCESSED: 7
+INFO  :    INPUT_SPLIT_LENGTH_BYTES: 117
+INFO  :    OUTPUT_RECORDS: 7
+INFO  :    OUTPUT_LARGE_RECORDS: 0
+INFO  :    OUTPUT_BYTES: 118
+INFO  :    OUTPUT_BYTES_WITH_OVERHEAD: 138
+INFO  :    OUTPUT_BYTES_PHYSICAL: 149
+INFO  :    ADDITIONAL_SPILLS_BYTES_WRITTEN: 0
+INFO  :    ADDITIONAL_SPILLS_BYTES_READ: 149
+INFO  :    ADDITIONAL_SPILL_COUNT: 0
+INFO  :    SHUFFLE_CHUNK_COUNT: 1
+INFO  :    SHUFFLE_BYTES: 149
+INFO  :    SHUFFLE_BYTES_DECOMPRESSED: 138
+INFO  :    SHUFFLE_BYTES_TO_MEM: 0
+INFO  :    SHUFFLE_BYTES_TO_DISK: 0
+INFO  :    SHUFFLE_BYTES_DISK_DIRECT: 149
+INFO  :    NUM_MEM_TO_DISK_MERGES: 0
+INFO  :    NUM_DISK_TO_DISK_MERGES: 0
+INFO  :    SHUFFLE_PHASE_TIME: 243
+INFO  :    MERGE_PHASE_TIME: 303
+INFO  :    FIRST_EVENT_RECEIVED: 121
+INFO  :    LAST_EVENT_RECEIVED: 121
+INFO  : HIVE:
+INFO  :    CREATED_FILES: 1
+INFO  :    DESERIALIZE_ERRORS: 0
+INFO  :    RECORDS_IN_Map_1: 7
+INFO  :    RECORDS_OUT_0: 7
+INFO  :    RECORDS_OUT_INTERMEDIATE_Map_1: 7
+INFO  :    RECORDS_OUT_INTERMEDIATE_Reducer_2: 0
+INFO  :    RECORDS_OUT_OPERATOR_FS_8: 7
+INFO  :    RECORDS_OUT_OPERATOR_MAP_0: 0
+INFO  :    RECORDS_OUT_OPERATOR_RS_6: 7
+INFO  :    RECORDS_OUT_OPERATOR_SEL_5: 7
+INFO  :    RECORDS_OUT_OPERATOR_SEL_7: 7
+INFO  :    RECORDS_OUT_OPERATOR_TS_0: 7
+INFO  : Shuffle Errors:
+INFO  :    BAD_ID: 0
+INFO  :    CONNECTION: 0
+INFO  :    IO_ERROR: 0
+INFO  :    WRONG_LENGTH: 0
+INFO  :    WRONG_MAP: 0
+INFO  :    WRONG_REDUCE: 0
+INFO  : Shuffle Errors_Reducer_2_INPUT_Map_1:
+INFO  :    BAD_ID: 0
+INFO  :    CONNECTION: 0
+INFO  :    IO_ERROR: 0
+INFO  :    WRONG_LENGTH: 0
+INFO  :    WRONG_MAP: 0
+INFO  :    WRONG_REDUCE: 0
+INFO  : TaskCounter_Map_1_INPUT_users:
+INFO  :    INPUT_RECORDS_PROCESSED: 7
+INFO  :    INPUT_SPLIT_LENGTH_BYTES: 117
+INFO  : TaskCounter_Map_1_OUTPUT_Reducer_2:
+INFO  :    ADDITIONAL_SPILLS_BYTES_READ: 0
+INFO  :    ADDITIONAL_SPILLS_BYTES_WRITTEN: 0
+INFO  :    ADDITIONAL_SPILL_COUNT: 0
+INFO  :    OUTPUT_BYTES: 118
+INFO  :    OUTPUT_BYTES_PHYSICAL: 149
+INFO  :    OUTPUT_BYTES_WITH_OVERHEAD: 138
+INFO  :    OUTPUT_LARGE_RECORDS: 0
+INFO  :    OUTPUT_RECORDS: 7
+INFO  :    SHUFFLE_CHUNK_COUNT: 1
+INFO  :    SPILLED_RECORDS: 7
+INFO  : TaskCounter_Reducer_2_INPUT_Map_1:
+INFO  :    ADDITIONAL_SPILLS_BYTES_READ: 149
+INFO  :    ADDITIONAL_SPILLS_BYTES_WRITTEN: 0
+INFO  :    COMBINE_INPUT_RECORDS: 0
+INFO  :    FIRST_EVENT_RECEIVED: 121
+INFO  :    LAST_EVENT_RECEIVED: 121
+INFO  :    MERGED_MAP_OUTPUTS: 1
+INFO  :    MERGE_PHASE_TIME: 303
+INFO  :    NUM_DISK_TO_DISK_MERGES: 0
+INFO  :    NUM_FAILED_SHUFFLE_INPUTS: 0
+INFO  :    NUM_MEM_TO_DISK_MERGES: 0
+INFO  :    NUM_SHUFFLED_INPUTS: 1
+INFO  :    NUM_SKIPPED_INPUTS: 0
+INFO  :    REDUCE_INPUT_GROUPS: 7
+INFO  :    REDUCE_INPUT_RECORDS: 7
+INFO  :    SHUFFLE_BYTES: 149
+INFO  :    SHUFFLE_BYTES_DECOMPRESSED: 138
+INFO  :    SHUFFLE_BYTES_DISK_DIRECT: 149
+INFO  :    SHUFFLE_BYTES_TO_DISK: 0
+INFO  :    SHUFFLE_BYTES_TO_MEM: 0
+INFO  :    SHUFFLE_PHASE_TIME: 243
+INFO  :    SPILLED_RECORDS: 7
+INFO  : TaskCounter_Reducer_2_OUTPUT_out_Reducer_2:
+INFO  :    OUTPUT_RECORDS: 0
+INFO  : org.apache.hadoop.hive.ql.exec.tez.HiveInputCounters:
+INFO  :    GROUPED_INPUT_SPLITS_Map_1: 1
+INFO  :    INPUT_DIRECTORIES_Map_1: 1
+INFO  :    INPUT_FILES_Map_1: 1
+INFO  :    RAW_INPUT_SPLITS_Map_1: 1
+INFO  : Completed executing command(queryId=hive_20220105220946_9724c1da-d2d4-45c6-904a-0dfb2c3ab616); Time taken: 29.032 seconds
+INFO  : OK
++-----------+-------------+---------------+-------------+
+| users.id  | users.name  | users.salary  | users.unit  |
++-----------+-------------+---------------+-------------+
+| 1         | Amith       | 100           | DNA         |
+| 8         | Chandra     | 500           | DNA         |
+| 5         | Karthi      | 100           | FCS         |
+| 6         | Mahoor      | 200           | FCS         |
+| 2         | Sumith      | 200           | DNA         |
+| 4         | Sunil       | 500           | FCS         |
+| 3         | Yadav       | 300           | DNA         |
++-----------+-------------+---------------+-------------+
+7 rows selected (31.954 seconds)
+
+
+0: jdbc:hive2://sandbox-hdp.hortonworks.com:2> SELECT * FROM users SORT BY name ASC;
+INFO  : Compiling command(queryId=hive_20220105221048_d00e0bf2-ece4-446b-a026-b13e1345af9d): SELECT * FROM users SORT BY name ASC
+INFO  : Semantic Analysis Completed (retrial = false)
+INFO  : Returning Hive schema: Schema(fieldSchemas:[FieldSchema(name:users.id, type:int, comment:null), FieldSchema(name:users.name, type:string, comment:null), FieldSchema(name:users.salary, type:int, comment:null), FieldSchema(name:users.unit, type:string, comment:null)], properties:null)
+INFO  : Completed compiling command(queryId=hive_20220105221048_d00e0bf2-ece4-446b-a026-b13e1345af9d); Time taken: 0.528 seconds
+INFO  : Executing command(queryId=hive_20220105221048_d00e0bf2-ece4-446b-a026-b13e1345af9d): SELECT * FROM users SORT BY name ASC
+INFO  : Query ID = hive_20220105221048_d00e0bf2-ece4-446b-a026-b13e1345af9d
+INFO  : Total jobs = 1
+INFO  : Launching Job 1 out of 1
+INFO  : Starting task [Stage-1:MAPRED] in serial mode
+INFO  : Subscribed to counters: [] for queryId: hive_20220105221048_d00e0bf2-ece4-446b-a026-b13e1345af9d
+INFO  : Session is already open
+INFO  : Dag name: SELECT * FROM users SORT BY name ASC (Stage-1)
+INFO  : Status: Running (Executing on YARN cluster with App id application_1641404740141_0008)
+
+----------------------------------------------------------------------------------------------
+        VERTICES      MODE        STATUS  TOTAL  COMPLETED  RUNNING  PENDING  FAILED  KILLED
+----------------------------------------------------------------------------------------------
+Map 1            container        INITED      1          0        0        1    ----------------------------------------------------------------------------------------------   container        INITED      2          0        0        2            VERTICES      MODE        STATUS  TOTAL  COMPLETED  RUNNING  PENDING  FAILED  KILLED  ----------------------------------------------------------------------------------------------------------------------------------------------------------------2  [>>--------------------------] 0%    ELAPSED TIME: 0.56 s
+Map 1            container        INITED      1          0        0        1    ----------------------------------------------------------------------------------------------   container        INITED      2          0        0        2            VERTICES      MODE        STATUS  TOTAL  COMPLETED  RUNNING  PENDING  FAILED  KILLED  ----------------------------------------------------------------------------------------------------------------------------------------------------------------2  [>>--------------------------] 0%    ELAPSED TIME: 1.08 s
+Map 1            container        INITED      1          0        0        1    ----------------------------------------------------------------------------------------------   container        INITED      2          0        0        2            VERTICES      MODE        STATUS  TOTAL  COMPLETED  RUNNING  PENDING  FAILED  KILLED  ----------------------------------------------------------------------------------------------------------------------------------------------------------------2  [>>--------------------------] 0%    ELAPSED TIME: 1.60 s
+Map 1            container        INITED      1          0        0        1    ----------------------------------------------------------------------------------------------   container        INITED      2          0        0        2            VERTICES      MODE        STATUS  TOTAL  COMPLETED  RUNNING  PENDING  FAILED  KILLED  ----------------------------------------------------------------------------------------------------------------------------------------------------------------2  [>>--------------------------] 0%    ELAPSED TIME: 2.12 s
+Map 1            container        INITED      1          0        0        1    ----------------------------------------------------------------------------------------------   container        INITED      2          0        0        2            VERTICES      MODE        STATUS  TOTAL  COMPLETED  RUNNING  PENDING  FAILED  KILLED  ----------------------------------------------------------------------------------------------------------------------------------------------------------------2  [>>--------------------------] 0%    ELAPSED TIME: 2.62 s
+Map 1            container        INITED      1          0        0        1    ----------------------------------------------------------------------------------------------   container        INITED      2          0        0        2            VERTICES      MODE        STATUS  TOTAL  COMPLETED  RUNNING  PENDING  FAILED  KILLED  ----------------------------------------------------------------------------------------------------------------------------------------------------------------2  [>>--------------------------] 0%    ELAPSED TIME: 3.13 s
+Map 1            container       RUNNING      1          0        1        0    ----------------------------------------------------------------------------------------------   container        INITED      2          0        0        2            VERTICES      MODE        STATUS  TOTAL  COMPLETED  RUNNING  PENDING  FAILED  KILLED  ----------------------------------------------------------------------------------------------------------------------------------------------------------------2  [>>--------------------------] 0%    ELAPSED TIME: 3.66 s
+Map 1            container       RUNNING      1          0        1        0    ----------------------------------------------------------------------------------------------   container        INITED      2          0        0        2            VERTICES      MODE        STATUS  TOTAL  COMPLETED  RUNNING  PENDING  FAILED  KILLED  ----------------------------------------------------------------------------------------------------------------------------------------------------------------2  [>>--------------------------] 0%    ELAPSED TIME: 4.18 s
+Map 1            container       RUNNING      1          0        1        0    ----------------------------------------------------------------------------------------------   container        INITED      2          0        0        2            VERTICES      MODE        STATUS  TOTAL  COMPLETED  RUNNING  PENDING  FAILED  KILLED  ----------------------------------------------------------------------------------------------------------------------------------------------------------------2  [>>--------------------------] 0%    ELAPSED TIME: 4.71 s
+Map 1            container       RUNNING      1          0        1        0    ----------------------------------------------------------------------------------------------   container        INITED      2          0        0        2            VERTICES      MODE        STATUS  TOTAL  COMPLETED  RUNNING  PENDING  FAILED  KILLED  ----------------------------------------------------------------------------------------------------------------------------------------------------------------2  [>>--------------------------] 0%    ELAPSED TIME: 5.22 s
+Map 1            container       RUNNING      1          0        1        0    ----------------------------------------------------------------------------------------------   container        INITED      2          0        0        2            VERTICES      MODE        STATUS  TOTAL  COMPLETED  RUNNING  PENDING  FAILED  KILLED  ----------------------------------------------------------------------------------------------------------------------------------------------------------------2  [>>--------------------------] 0%    ELAPSED TIME: 5.72 s
+Map 1            container       RUNNING      1          0        1        0    ----------------------------------------------------------------------------------------------   container        INITED      2          0        0        2            VERTICES      MODE        STATUS  TOTAL  COMPLETED  RUNNING  PENDING  FAILED  KILLED  ----------------------------------------------------------------------------------------------------------------------------------------------------------------2  [>>--------------------------] 0%    ELAPSED TIME: 6.23 s
+Map 1            container       RUNNING      1          0        1        0    ----------------------------------------------------------------------------------------------   container        INITED      2          0        0        2            VERTICES      MODE        STATUS  TOTAL  COMPLETED  RUNNING  PENDING  FAILED  KILLED  ----------------------------------------------------------------------------------------------------------------------------------------------------------------2  [>>--------------------------] 0%    ELAPSED TIME: 6.74 s
+Map 1            container       RUNNING      1          0        1        0    ----------------------------------------------------------------------------------------------   container        INITED      2          0        0        2            VERTICES      MODE        STATUS  TOTAL  COMPLETED  RUNNING  PENDING  FAILED  KILLED  ----------------------------------------------------------------------------------------------------------------------------------------------------------------2  [>>--------------------------] 0%    ELAPSED TIME: 7.24 s
+Map 1            container       RUNNING      1          0        1        0    ----------------------------------------------------------------------------------------------   container        INITED      2          0        0        2            VERTICES      MODE        STATUS  TOTAL  COMPLETED  RUNNING  PENDING  FAILED  KILLED  ----------------------------------------------------------------------------------------------------------------------------------------------------------------2  [>>--------------------------] 0%    ELAPSED TIME: 7.75 s
+Map 1            container       RUNNING      1          0        1        0    ----------------------------------------------------------------------------------------------   container        INITED      2          0        0        2            VERTICES      MODE        STATUS  TOTAL  COMPLETED  RUNNING  PENDING  FAILED  KILLED  ----------------------------------------------------------------------------------------------------------------------------------------------------------------2  [>>--------------------------] 0%    ELAPSED TIME: 8.27 s
+Map 1 .......... container     SUCCEEDED      1          1        0        0    ----------------------------------------------------------------------------------------------   container       RUNNING      2          0        1        1            VERTICES      MODE        STATUS  TOTAL  COMPLETED  RUNNING  PENDING  FAILED  KILLED  ----------------------------------------------------------------------------------------------------------------------------------------------------------------2  [========>>------------------] 33%   ELAPSED TIME: 9.27 s
+Map 1 .......... container     SUCCEEDED      1          1        0        0    ----------------------------------------------------------------------------------------------   container       RUNNING      2          0        1        1            VERTICES      MODE        STATUS  TOTAL  COMPLETED  RUNNING  PENDING  FAILED  KILLED  ----------------------------------------------------------------------------------------------------------------------------------------------------------------2  [========>>------------------] 33%   ELAPSED TIME: 10.28 s
+Map 1 .......... container     SUCCEEDED      1          1        0        0    ----------------------------------------------------------------------------------------------   container       RUNNING      2          1        0        1            VERTICES      MODE        STATUS  TOTAL  COMPLETED  RUNNING  PENDING  FAILED  KILLED  ----------------------------------------------------------------------------------------------------------------------------------------------------------------2  [=================>>---------] 66%   ELAPSED TIME: 11.29 s
+Map 1 .......... container     SUCCEEDED      1          1        0        0    ----------------------------------------------------------------------------------------------   container       RUNNING      2          1        1        0            VERTICES      MODE        STATUS  TOTAL  COMPLETED  RUNNING  PENDING  FAILED  KILLED  ----------------------------------------------------------------------------------------------------------------------------------------------------------------2  [=================>>---------] 66%   ELAPSED TIME: 12.30 s
+Map 1 .......... container     SUCCEEDED      1          1        0        0    ----------------------------------------------------------------------------------------------   container       RUNNING      2          1        1        0            VERTICES      MODE        STATUS  TOTAL  COMPLETED  RUNNING  PENDING  FAILED  KILLED  ----------------------------------------------------------------------------------------------------------------------------------------------------------------2  [=================>>---------] 66%   ELAPSED TIME: 13.30 s
+Map 1 .......... container     SUCCEEDED      1          1        0        0    ----------------------------------------------------------------------------------------------   container       RUNNING      2          1        1        0            VERTICES      MODE        STATUS  TOTAL  COMPLETED  RUNNING  PENDING  FAILED  KILLED  ----------------------------------------------------------------------------------------------------------------------------------------------------------------2  [=================>>---------] 66%   ELAPSED TIME: 14.31 s
+Map 1 .......... container     SUCCEEDED      1          1        0        0    ----------------------------------------------------------------------------------------------   container       RUNNING      2          1        1        0            VERTICES      MODE        STATUS  TOTAL  COMPLETED  RUNNING  PENDING  FAILED  KILLED  ----------------------------------------------------------------------------------------------------------------------------------------------------------------2  [=================>>---------] 66%   ELAPSED TIME: 15.32 s
+Map 1 .......... container     SUCCEEDED      1          1        0        0    ----------------------------------------------------------------------------------------------   container       RUNNING      2          1        1        0            VERTICES      MODE        STATUS  TOTAL  COMPLETED  RUNNING  PENDING  FAILED  KILLED  ----------------------------------------------------------------------------------------------------------------------------------------------------------------2  [=================>>---------] 66%   ELAPSED TIME: 16.34 s
+Map 1 .......... container     SUCCEEDED      1          1        0        0       0       0
+Reducer 2 ...... container     SUCCEEDED      2          2        0        0       0       0
+----------------------------------------------------------------------------------------------
+VERTICES: 02/02  [==========================>>] 100%  ELAPSED TIME: 17.01 s
+----------------------------------------------------------------------------------------------
+INFO  : Status: DAG finished successfully in 16.73 seconds
+INFO  :
+INFO  : Query Execution Summary
+INFO  : ----------------------------------------------------------------------------------------------
+INFO  : OPERATION                            DURATION
+INFO  : ----------------------------------------------------------------------------------------------
+INFO  : Compile Query                           0.53s
+INFO  : Prepare Plan                            0.41s
+INFO  : Get Query Coordinator (AM)              0.00s
+INFO  : Submit Plan                             0.38s
+INFO  : Start DAG                               0.74s
+INFO  : Run DAG                                16.73s
+INFO  : ----------------------------------------------------------------------------------------------
+INFO  :
+INFO  : Task Execution Summary
+INFO  : ----------------------------------------------------------------------------------------------
+INFO  :   VERTICES      DURATION(ms)   CPU_TIME(ms)    GC_TIME(ms)   INPUT_RECORDS   OUTPUT_RECORDS
+INFO  : ----------------------------------------------------------------------------------------------
+INFO  :      Map 1           5124.00          7,590            500               7                7
+INFO  :  Reducer 2           8323.00         11,840            371               7                0
+INFO  : ----------------------------------------------------------------------------------------------
+INFO  :
+INFO  : org.apache.tez.common.counters.DAGCounter:
+INFO  :    NUM_SUCCEEDED_TASKS: 3
+INFO  :    TOTAL_LAUNCHED_TASKS: 3
+INFO  :    AM_CPU_MILLISECONDS: 2480
+INFO  :    AM_GC_TIME_MILLIS: 0
+INFO  : File System Counters:
+INFO  :    FILE_BYTES_READ: 474
+INFO  :    FILE_BYTES_WRITTEN: 226
+INFO  :    HDFS_BYTES_READ: 117
+INFO  :    HDFS_BYTES_WRITTEN: 375
+INFO  :    HDFS_READ_OPS: 7
+INFO  :    HDFS_WRITE_OPS: 4
+INFO  :    HDFS_OP_CREATE: 2
+INFO  :    HDFS_OP_GET_FILE_STATUS: 6
+INFO  :    HDFS_OP_OPEN: 1
+INFO  :    HDFS_OP_RENAME: 2
+INFO  : org.apache.tez.common.counters.TaskCounter:
+INFO  :    REDUCE_INPUT_GROUPS: 7
+INFO  :    REDUCE_INPUT_RECORDS: 7
+INFO  :    COMBINE_INPUT_RECORDS: 0
+INFO  :    SPILLED_RECORDS: 14
+INFO  :    NUM_SHUFFLED_INPUTS: 2
+INFO  :    NUM_SKIPPED_INPUTS: 0
+INFO  :    NUM_FAILED_SHUFFLE_INPUTS: 0
+INFO  :    MERGED_MAP_OUTPUTS: 2
+INFO  :    GC_TIME_MILLIS: 871
+INFO  :    TASK_DURATION_MILLIS: 11603
+INFO  :    CPU_MILLISECONDS: 19430
+INFO  :    PHYSICAL_MEMORY_BYTES: 1470103552
+INFO  :    VIRTUAL_MEMORY_BYTES: 7982399488
+INFO  :    COMMITTED_HEAP_BYTES: 1470103552
+INFO  :    INPUT_RECORDS_PROCESSED: 7
+INFO  :    INPUT_SPLIT_LENGTH_BYTES: 117
+INFO  :    OUTPUT_RECORDS: 7
+INFO  :    OUTPUT_LARGE_RECORDS: 0
+INFO  :    OUTPUT_BYTES: 118
+INFO  :    OUTPUT_BYTES_WITH_OVERHEAD: 144
+INFO  :    OUTPUT_BYTES_PHYSICAL: 170
+INFO  :    ADDITIONAL_SPILLS_BYTES_WRITTEN: 0
+INFO  :    ADDITIONAL_SPILLS_BYTES_READ: 170
+INFO  :    ADDITIONAL_SPILL_COUNT: 0
+INFO  :    SHUFFLE_CHUNK_COUNT: 1
+INFO  :    SHUFFLE_BYTES: 170
+INFO  :    SHUFFLE_BYTES_DECOMPRESSED: 144
+INFO  :    SHUFFLE_BYTES_TO_MEM: 0
+INFO  :    SHUFFLE_BYTES_TO_DISK: 0
+INFO  :    SHUFFLE_BYTES_DISK_DIRECT: 170
+INFO  :    NUM_MEM_TO_DISK_MERGES: 0
+INFO  :    NUM_DISK_TO_DISK_MERGES: 0
+INFO  :    SHUFFLE_PHASE_TIME: 838
+INFO  :    MERGE_PHASE_TIME: 1039
+INFO  :    FIRST_EVENT_RECEIVED: 430
+INFO  :    LAST_EVENT_RECEIVED: 430
+INFO  : HIVE:
+INFO  :    CREATED_FILES: 2
+INFO  :    DESERIALIZE_ERRORS: 0
+INFO  :    RECORDS_IN_Map_1: 7
+INFO  :    RECORDS_OUT_0: 7
+INFO  :    RECORDS_OUT_INTERMEDIATE_Map_1: 7
+INFO  :    RECORDS_OUT_INTERMEDIATE_Reducer_2: 0
+INFO  :    RECORDS_OUT_OPERATOR_FS_8: 7
+INFO  :    RECORDS_OUT_OPERATOR_MAP_0: 0
+INFO  :    RECORDS_OUT_OPERATOR_RS_6: 7
+INFO  :    RECORDS_OUT_OPERATOR_SEL_5: 7
+INFO  :    RECORDS_OUT_OPERATOR_SEL_7: 7
+INFO  :    RECORDS_OUT_OPERATOR_TS_0: 7
+INFO  : Shuffle Errors:
+INFO  :    BAD_ID: 0
+INFO  :    CONNECTION: 0
+INFO  :    IO_ERROR: 0
+INFO  :    WRONG_LENGTH: 0
+INFO  :    WRONG_MAP: 0
+INFO  :    WRONG_REDUCE: 0
+INFO  : Shuffle Errors_Reducer_2_INPUT_Map_1:
+INFO  :    BAD_ID: 0
+INFO  :    CONNECTION: 0
+INFO  :    IO_ERROR: 0
+INFO  :    WRONG_LENGTH: 0
+INFO  :    WRONG_MAP: 0
+INFO  :    WRONG_REDUCE: 0
+INFO  : TaskCounter_Map_1_INPUT_users:
+INFO  :    INPUT_RECORDS_PROCESSED: 7
+INFO  :    INPUT_SPLIT_LENGTH_BYTES: 117
+INFO  : TaskCounter_Map_1_OUTPUT_Reducer_2:
+INFO  :    ADDITIONAL_SPILLS_BYTES_READ: 0
+INFO  :    ADDITIONAL_SPILLS_BYTES_WRITTEN: 0
+INFO  :    ADDITIONAL_SPILL_COUNT: 0
+INFO  :    OUTPUT_BYTES: 118
+INFO  :    OUTPUT_BYTES_PHYSICAL: 170
+INFO  :    OUTPUT_BYTES_WITH_OVERHEAD: 144
+INFO  :    OUTPUT_LARGE_RECORDS: 0
+INFO  :    OUTPUT_RECORDS: 7
+INFO  :    SHUFFLE_CHUNK_COUNT: 1
+INFO  :    SPILLED_RECORDS: 7
+INFO  : TaskCounter_Reducer_2_INPUT_Map_1:
+INFO  :    ADDITIONAL_SPILLS_BYTES_READ: 170
+INFO  :    ADDITIONAL_SPILLS_BYTES_WRITTEN: 0
+INFO  :    COMBINE_INPUT_RECORDS: 0
+INFO  :    FIRST_EVENT_RECEIVED: 430
+INFO  :    LAST_EVENT_RECEIVED: 430
+INFO  :    MERGED_MAP_OUTPUTS: 2
+INFO  :    MERGE_PHASE_TIME: 1039
+INFO  :    NUM_DISK_TO_DISK_MERGES: 0
+INFO  :    NUM_FAILED_SHUFFLE_INPUTS: 0
+INFO  :    NUM_MEM_TO_DISK_MERGES: 0
+INFO  :    NUM_SHUFFLED_INPUTS: 2
+INFO  :    NUM_SKIPPED_INPUTS: 0
+INFO  :    REDUCE_INPUT_GROUPS: 7
+INFO  :    REDUCE_INPUT_RECORDS: 7
+INFO  :    SHUFFLE_BYTES: 170
+INFO  :    SHUFFLE_BYTES_DECOMPRESSED: 144
+INFO  :    SHUFFLE_BYTES_DISK_DIRECT: 170
+INFO  :    SHUFFLE_BYTES_TO_DISK: 0
+INFO  :    SHUFFLE_BYTES_TO_MEM: 0
+INFO  :    SHUFFLE_PHASE_TIME: 838
+INFO  :    SPILLED_RECORDS: 7
+INFO  : TaskCounter_Reducer_2_OUTPUT_out_Reducer_2:
+INFO  :    OUTPUT_RECORDS: 0
+INFO  : org.apache.hadoop.hive.ql.exec.tez.HiveInputCounters:
+INFO  :    GROUPED_INPUT_SPLITS_Map_1: 1
+INFO  :    INPUT_DIRECTORIES_Map_1: 1
+INFO  :    INPUT_FILES_Map_1: 1
+INFO  :    RAW_INPUT_SPLITS_Map_1: 1
+INFO  : Completed executing command(queryId=hive_20220105221048_d00e0bf2-ece4-446b-a026-b13e1345af9d); Time taken: 18.315 seconds
+INFO  : OK
++-----------+-------------+---------------+-------------+
+| users.id  | users.name  | users.salary  | users.unit  |
++-----------+-------------+---------------+-------------+
+| 1         | Amith       | 100           | DNA         |
+| 5         | Karthi      | 100           | FCS         |
+| 4         | Sunil       | 500           | FCS         |
+| 3         | Yadav       | 300           | DNA         |
+| 8         | Chandra     | 500           | DNA         |
+| 6         | Mahoor      | 200           | FCS         |
+| 2         | Sumith      | 200           | DNA         |
++-----------+-------------+---------------+-------------+
+7 rows selected (19.194 seconds)
+0: jdbc:hive2://sandbox-hdp.hortonworks.com:2> Closing: 0: jdbc:hive2://sandbox-hdp.hortonworks.com:2181/default;password=hive;serviceDiscoveryMode=zooKeeper;user=hive;zooKeeperNamespace=hiveserver2

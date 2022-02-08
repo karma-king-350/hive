@@ -1,0 +1,72 @@
+0: jdbc:hive2://sandbox-hdp.hortonworks.com:2> CREATE TABLE userlog(
+. . . . . . . . . . . . . . . . . . . . . . .>  host string,
+. . . . . . . . . . . . . . . . . . . . . . .>  user_name string,
+. . . . . . . . . . . . . . . . . . . . . . .>  domain string
+. . . . . . . . . . . . . . . . . . . . . . .>  )
+. . . . . . . . . . . . . . . . . . . . . . .>  ROW FORMAT SERDE
+. . . . . . . . . . . . . . . . . . . . . . .>  'org.apache.hadoop.hive.contrib.                                                                                        serde2.RegexSerDe'
+. . . . . . . . . . . . . . . . . . . . . . .>  WITH SERDEPROPERTIES(
+. . . . . . . . . . . . . . . . . . . . . . .>  'input.regex' = '(.*)/(.*)@(.*)'                                                                                        ,
+. . . . . . . . . . . . . . . . . . . . . . .>  'output.format.string' = '%1$s %                                                                                        2$s %3$s')
+. . . . . . . . . . . . . . . . . . . . . . .>  STORED AS TEXTFILE;
+INFO  : Compiling command(queryId=hive_20220105203339_f16afc5f-fbba-4b61-99cc-24                                                                                        12b8b78f05): CREATE TABLE userlog(
+host string,
+user_name string,
+domain string
+)
+ROW FORMAT SERDE
+'org.apache.hadoop.hive.contrib.serde2.RegexSerDe'
+WITH SERDEPROPERTIES(
+'input.regex' = '(.*)/(.*)@(.*)',
+'output.format.string' = '%1$s %2$s %3$s')
+STORED AS TEXTFILE
+INFO  : Semantic Analysis Completed (retrial = false)
+INFO  : Returning Hive schema: Schema(fieldSchemas:null, properties:null)
+INFO  : Completed compiling command(queryId=hive_20220105203339_f16afc5f-fbba-4b                                                                                        61-99cc-2412b8b78f05); Time taken: 0.125 seconds
+INFO  : Executing command(queryId=hive_20220105203339_f16afc5f-fbba-4b61-99cc-24                                                                                        12b8b78f05): CREATE TABLE userlog(
+host string,
+user_name string,
+domain string
+)
+ROW FORMAT SERDE
+'org.apache.hadoop.hive.contrib.serde2.RegexSerDe'
+WITH SERDEPROPERTIES(
+'input.regex' = '(.*)/(.*)@(.*)',
+'output.format.string' = '%1$s %2$s %3$s')
+STORED AS TEXTFILE
+INFO  : Starting task [Stage-0:DDL] in serial mode
+INFO  : Completed executing command(queryId=hive_20220105203339_f16afc5f-fbba-4b                                                                                        61-99cc-2412b8b78f05); Time taken: 0.419 seconds
+INFO  : OK
+No rows affected (0.795 seconds)
+
+ load data inpath 'regex_file.txt' into table userlog;
+INFO  : Compiling command(queryId=hive_20220105203554_1215ac86-de53-4b20-a905-f6035e3f7202): load data inpath 'regex_file.txt' into table userlog
+INFO  : Semantic Analysis Completed (retrial = false)
+INFO  : Returning Hive schema: Schema(fieldSchemas:null, properties:null)
+INFO  : Completed compiling command(queryId=hive_20220105203554_1215ac86-de53-4b20-a905-f6035e3f7202); Time taken: 0.523 seconds
+INFO  : Executing command(queryId=hive_20220105203554_1215ac86-de53-4b20-a905-f6035e3f7202): load data inpath 'regex_file.txt' into table userlog
+INFO  : Starting task [Stage-0:MOVE] in serial mode
+INFO  : Loading data to table pract.userlog from hdfs://sandbox-hdp.hortonworks.com:8020/user/hive/regex_file.txt
+INFO  : Starting task [Stage-1:STATS] in serial mode
+INFO  : Completed executing command(queryId=hive_20220105203554_1215ac86-de53-4b20-a905-f6035e3f7202); Time taken: 3.762 seconds
+INFO  : OK
+No rows affected (5.222 seconds)
+
+
+select * from userlog;
+INFO  : Compiling command(queryId=hive_20220105203622_ef25ccbb-8793-4042-b341-8ce19f879b1f): select * from userlog
+INFO  : Semantic Analysis Completed (retrial = false)
+INFO  : Returning Hive schema: Schema(fieldSchemas:[FieldSchema(name:userlog.host, type:string, comment:null), FieldSchema(name:userlog.user_name, type:string, comment:null), FieldSchema(name:userlog.domain, type:string, comment:null)], properties:null)
+INFO  : Completed compiling command(queryId=hive_20220105203622_ef25ccbb-8793-4042-b341-8ce19f879b1f); Time taken: 0.726 seconds
+INFO  : Executing command(queryId=hive_20220105203622_ef25ccbb-8793-4042-b341-8ce19f879b1f): select * from userlog
+INFO  : Completed executing command(queryId=hive_20220105203622_ef25ccbb-8793-4042-b341-8ce19f879b1f); Time taken: 0.018 seconds
+INFO  : OK
++---------------+--------------------+-----------------+
+| userlog.host  | userlog.user_name  | userlog.domain  |
++---------------+--------------------+-----------------+
+| host1         | amit               | gmail           |
+| host2         | sumit              | facebook        |
+| host3         | raghav             | gmail           |
+| host4         | rohit              | gmail           |
++---------------+--------------------+-----------------+
+4 rows selected (1.048 seconds)

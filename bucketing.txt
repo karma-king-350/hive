@@ -1,0 +1,116 @@
+0: jdbc:hive2://sandbox-hdp.hortonworks.com:2> select * from buck_users;
+INFO  : Compiling command(queryId=hive_20220106101223_e27aa112-016e-4855-966d-aeab75208c59): select * from buck_users
+INFO  : Semantic Analysis Completed (retrial = false)
+INFO  : Returning Hive schema: Schema(fieldSchemas:[FieldSchema(name:buck_users.id, type:int, comment:null), FieldSchema(name:buck_users.name, type:string, comment:null), FieldSchema(name:buck_users.salary, type:int, comment:null), FieldSchema(name:buck_users.unit, type:string, comment:null)], properties:null)
+INFO  : Completed compiling command(queryId=hive_20220106101223_e27aa112-016e-4855-966d-aeab75208c59); Time taken: 0.687 seconds
+INFO  : Executing command(queryId=hive_20220106101223_e27aa112-016e-4855-966d-aeab75208c59): select * from buck_users
+INFO  : Completed executing command(queryId=hive_20220106101223_e27aa112-016e-4855-966d-aeab75208c59); Time taken: 0.008 seconds
+INFO  : OK
++----------------+------------------+--------------------+------------------+
+| buck_users.id  | buck_users.name  | buck_users.salary  | buck_users.unit  |
++----------------+------------------+--------------------+------------------+
+| 2              | Sumith           | 200                | DNA              |
+| 3              | Yadav            | 300                | DNA              |
+| 6              | Mahoor           | 200                | FCS              |
+| 1              | Amith            | 100                | DNA              |
+| 4              | Sunil            | 500                | FCS              |
+| 5              | Karthi           | 100                | FCS              |
+| 8              | Chandra          | 500                | DNA              |
++----------------+------------------+--------------------+------------------+
+7 rows selected (1.113 seconds)
+0: jdbc:hive2://sandbox-hdp.hortonworks.com:2>
+
+0: jdbc:hive2://sandbox-hdp.hortonworks.com:2> select * from buck_locations;
+INFO  : Compiling command(queryId=hive_20220106101307_57f5eb42-95c7-43a4-9542-e6bad062d1d3): select * from buck_locations
+INFO  : Semantic Analysis Completed (retrial = false)
+INFO  : Returning Hive schema: Schema(fieldSchemas:[FieldSchema(name:buck_locations.id, type:int, comment:null), FieldSchema(name:buck_locations.location, type:string, comment:null)], properties:null)
+INFO  : Completed compiling command(queryId=hive_20220106101307_57f5eb42-95c7-43a4-9542-e6bad062d1d3); Time taken: 0.471 seconds
+INFO  : Executing command(queryId=hive_20220106101307_57f5eb42-95c7-43a4-9542-e6bad062d1d3): select * from buck_locations
+INFO  : Completed executing command(queryId=hive_20220106101307_57f5eb42-95c7-43a4-9542-e6bad062d1d3); Time taken: 0.008 seconds
+INFO  : OK
++--------------------+--------------------------+
+| buck_locations.id  | buck_locations.location  |
++--------------------+--------------------------+
+| 2                  | BIHAR                    |
+| 3                  | MP                       |
+| 6                  | GOA                      |
+| 7                  | JHARKHAND                |
+| 1                  | UP                       |
+| 4                  | AP                       |
+| 5                  | MAHARASHTRA              |
++--------------------+--------------------------+
+7 rows selected (0.838 seconds)
+0: jdbc:hive2://sandbox-hdp.hortonworks.com:2> show create table buck_users;
+INFO  : Compiling command(queryId=hive_20220106101331_5776c2b3-ad1f-43fb-aa62-291db2a15cda): show create table buck_users
+INFO  : Semantic Analysis Completed (retrial = false)
+INFO  : Returning Hive schema: Schema(fieldSchemas:[FieldSchema(name:createtab_stmt, type:string, comment:from deserializer)], properties:null)
+INFO  : Completed compiling command(queryId=hive_20220106101331_5776c2b3-ad1f-43fb-aa62-291db2a15cda); Time taken: 0.188 seconds
+INFO  : Executing command(queryId=hive_20220106101331_5776c2b3-ad1f-43fb-aa62-291db2a15cda): show create table buck_users
+INFO  : Starting task [Stage-0:DDL] in serial mode
+INFO  : Completed executing command(queryId=hive_20220106101331_5776c2b3-ad1f-43fb-aa62-291db2a15cda); Time taken: 0.075 seconds
+INFO  : OK
++----------------------------------------------------+
+|                   createtab_stmt                   |
++----------------------------------------------------+
+| CREATE TABLE `buck_users`(                         |
+|   `id` int,                                        |
+|   `name` string,                                   |
+|   `salary` int,                                    |
+|   `unit` string)                                   |
+| CLUSTERED BY (                                     |
+|   id)                                              |
+| SORTED BY (                                        |
+|   id ASC)                                          |
+| INTO 2 BUCKETS                                     |
+| ROW FORMAT SERDE                                   |
+|   'org.apache.hadoop.hive.ql.io.orc.OrcSerde'      |
+| STORED AS INPUTFORMAT                              |
+|   'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat'  |
+| OUTPUTFORMAT                                       |
+|   'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat' |
+| LOCATION                                           |
+|   'hdfs://sandbox-hdp.hortonworks.com:8020/warehouse/tablespace/managed/hive/pract.db/buck_users' |
+| TBLPROPERTIES (                                    |
+|   'bucketing_version'='2',                         |
+|   'transactional'='true',                          |
+|   'transactional_properties'='insert_only',        |
+|   'transient_lastDdlTime'='1641428204')            |
++----------------------------------------------------+
+23 rows selected (0.459 seconds)
+
+0: jdbc:hive2://sandbox-hdp.hortonworks.com:2> show create table buck_locations;
+INFO  : Compiling command(queryId=hive_20220106101347_1f04122b-27b3-40fb-a4ad-ac01d38777ce): show create table buck_locations
+INFO  : Semantic Analysis Completed (retrial = false)
+INFO  : Returning Hive schema: Schema(fieldSchemas:[FieldSchema(name:createtab_stmt, type:string, comment:from deserializer)], properties:null)
+INFO  : Completed compiling command(queryId=hive_20220106101347_1f04122b-27b3-40fb-a4ad-ac01d38777ce); Time taken: 0.176 seconds
+INFO  : Executing command(queryId=hive_20220106101347_1f04122b-27b3-40fb-a4ad-ac01d38777ce): show create table buck_locations
+INFO  : Starting task [Stage-0:DDL] in serial mode
+INFO  : Completed executing command(queryId=hive_20220106101347_1f04122b-27b3-40fb-a4ad-ac01d38777ce); Time taken: 0.062 seconds
+INFO  : OK
++----------------------------------------------------+
+|                   createtab_stmt                   |
++----------------------------------------------------+
+| CREATE TABLE `buck_locations`(                     |
+|   `id` int,                                        |
+|   `location` string)                               |
+| CLUSTERED BY (                                     |
+|   id)                                              |
+| SORTED BY (                                        |
+|   id ASC)                                          |
+| INTO 2 BUCKETS                                     |
+| ROW FORMAT SERDE                                   |
+|   'org.apache.hadoop.hive.ql.io.orc.OrcSerde'      |
+| STORED AS INPUTFORMAT                              |
+|   'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat'  |
+| OUTPUTFORMAT                                       |
+|   'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat' |
+| LOCATION                                           |
+|   'hdfs://sandbox-hdp.hortonworks.com:8020/warehouse/tablespace/managed/hive/pract.db/buck_locations' |
+| TBLPROPERTIES (                                    |
+|   'bucketing_version'='2',                         |
+|   'transactional'='true',                          |
+|   'transactional_properties'='insert_only',        |
+|   'transient_lastDdlTime'='1641428611')            |
++----------------------------------------------------+
+21 rows selected (0.778 seconds)
+0: jdbc:hive2://sandbox-hdp.hortonworks.com:2>
