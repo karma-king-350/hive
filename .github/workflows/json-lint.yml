@@ -1,0 +1,21 @@
+name: Oncall JSON Lint
+
+on:
+  pull_request:
+    paths:
+      - "hive/oncall.json"
+
+jobs:
+  lint-oncall-json:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install jq
+        run: sudo apt-get update && sudo apt-get install -y jq
+
+      - name: Lint hive/oncall.json
+        run: |
+          scripts/lint_oncall_json.sh hive/oncall.json
