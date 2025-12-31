@@ -16,7 +16,14 @@ jobs:
       - name: Install jq
         run: sudo apt-get update && sudo apt-get install -y jq
 
+      - name: Debug script
+        run: |
+          ls -l scripts/lint_oncall_json.sh
+          file scripts/lint_oncall_json.sh
+          sed -n '1p' scripts/lint_oncall_json.sh
+
       - name: Lint hive/oncall.json
         run: |
           chmod +x scripts/lint_oncall_json.sh
           scripts/lint_oncall_json.sh hive/oncall.json
+
