@@ -1,0 +1,12 @@
+{
+    "on": [
+        {
+            "se": "at",
+            "sch": ["at-sch","ak,sh"]
+        },
+        {
+            "se": "ath",
+            "sch": ["ath-sch","akh,sh"]
+        }
+    ]
+}
