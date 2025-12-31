@@ -18,4 +18,5 @@ jobs:
 
       - name: Lint hive/oncall.json
         run: |
+          chmod +x scripts/lint_oncall_json.sh
           scripts/lint_oncall_json.sh hive/oncall.json
