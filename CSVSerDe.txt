@@ -57,7 +57,7 @@ INFO  : OK
 +-----------------+---------------------+
 | csv_table.name  | csv_table.location  |
 +-----------------+---------------------+
-| Amit            | BBSR,India          |
+| Amit            | BBSMR,India          |
 | Sumit           | MUM,India           |
 +-----------------+---------------------+
 2 rows selected (1.797 seconds)
@@ -76,4 +76,5 @@ INFO  : OK
 | MUM,India   |
 +-------------+
 2 rows selected (0.751 seconds)
+
 0: jdbc:hive2://sandbox-hdp.hortonworks.com:2> Closing: 0: jdbc:hive2://sandbox-hdp.hortonworks.com:2181/default;password=hive;serviceDiscoveryMode=zooKeeper;user=hive;
